@@ -9,9 +9,12 @@ from MainApp.models import Country, Language
 class CountriesListView(View):
     def get(self, request, *args, **kwargs):
         countries = Country.objects.all()
+        return render(request, 'countries.html', {'test': countries, 'alfavit': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'})
 
-        return render(request, 'countries.html', {'test': countries})
-
+class CountrySort(View):
+    def get(self, request, *args, **kwargs):
+        countries = Country.objects.filter(name__istartswith=kwargs['latter'])
+        return render(request, 'countries.html', {'test': countries, 'alfavit': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'})
 
 class RenderHomeView(TemplateView):
     template_name = 'home.html'
@@ -32,3 +35,8 @@ class LanguagesListView(View):
     def get(self, request, *args, **kwargs):
         languages = Language.objects.all()
         return render(request, 'languages.html', {'text': languages})
+
+class LanguageCountries(View):
+    def get(self, request, *args, **kwargs):
+        language = Language.objects.get(pk=kwargs['pk'])
+        return render(request, 'lang_countries.html', {'text' : language.countries.all()})

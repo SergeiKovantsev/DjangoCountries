@@ -7,7 +7,8 @@
 <body>
 <h1>DjangoCountries</h1>
 <ol>{%for lang in text%}
-    <li>{{lang.name}}</li>
+    <a href="{%url 'name' lang.pk%}"><li>{{lang.name}}</li></a>
+
 {%endfor%}</ol>
 </body>
 </html>

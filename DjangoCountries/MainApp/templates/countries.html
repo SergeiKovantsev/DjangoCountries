@@ -6,6 +6,9 @@
 </head>
 <body>
 <h1>DjangoCountries</h1>
+{%for latter in alfavit%}
+<a href="{%url 'sort' latter%}">{{latter}}</a>
+{%endfor%}
 <ol>{%for item in test%}
     <a href="{%url 'personal' item.pk%}"><li>{{item.name}}</li></a>
 {%endfor%}</ol>
