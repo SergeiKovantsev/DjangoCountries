@@ -9,9 +9,11 @@
 {%for latter in alfavit%}
 <a href="{%url 'sort' latter%}">{{latter}}</a>
 {%endfor%}
-<ol>{%for item in test%}
+<ol>{%for item in country_list%}
     <a href="{%url 'personal' item.pk%}"><li>{{item.name}}</li></a>
 {%endfor%}</ol>
-
+{%for i in paginator.page_range%}
+<a href="?page={{i}}">{{i}}</a>
+{%endfor%}
 </body>
 </html>
