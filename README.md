@@ -1,7 +1,7 @@
 # DjangoCountries
 # Запуск проекта
 1. Создаем виртуальное окружение: python3 -m venv venv
-2. Активация окружения source: venv/bin/activate
+2. Активация окружения: source venv/bin/activate
 3. Установить зависимости: pip install -r requirements.txt
 4. Применить миграции: python3 manage.py migrate
 5. Запускаем сервер: python manage.py runserver
